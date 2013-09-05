@@ -1,0 +1,17 @@
+<h2>Configuration</h2>
+
+<p>This class name is not really <em>reserved</em> within Rails. It&#39;s more to do with it conflicting with a class already within Rails. If you attempt to reference <code>Configuration</code> inside a controller action:</p>
+
+<pre><code>def index
+  @configurations = Configuration.scoped
+end
+</code></pre>
+
+<p>You&#39;ll see this output:</p>
+
+<pre><code>undefined method `scoped&#39; for ActiveSupport::Configurable::Configuration:Class
+</code></pre>
+
+<p>This is not the class you&#39;re looking for! This is happening because <code>ActiveSupport::Configurable</code> is one of the modules included into <code>ActionController::Base</code>, and that module contains a class called <code>Configuration</code>.</p>
+
+<p>You can work around this problem by prefixing the class name with <code>::</code>, which is the Ruby shortcut to tell it to look in the top-level namespace, or you could simply rename <code>Configuration</code> to something else, such as <code>Setting</code>.</p>
