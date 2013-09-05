@@ -6,9 +6,13 @@ This project is an attempt to document all the reserved words for Rails in a cle
 
 To add a new page, create a new file in the `src` directory, following the examples of the files that are already there. Once you're done, verify your change by running `rake build` and then running a simple web server to view the changes:
 
+    ruby -run -e httpd . -p 8000
+
+Or you could use Python:
+    
     python -m SimpleHTTPServer 
 
-If you don't have Python installed, find another way to run a local server.
+If you don't have Ruby and Python installed, find another way to run a local server, 
 
 Once your changes are verified, please submit a PR to this project.
 
