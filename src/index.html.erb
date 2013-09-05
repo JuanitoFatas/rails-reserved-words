@@ -14,9 +14,18 @@
         <option value="<%= page.path %>"><%= page["title"] %></option>
       <% end %>
     </select>
+    <div id='content'>
+    </div>
     <script>
       $(document).ready(function() {
-        $('#search').select2();
+        $('#search').select2().on('select2-selecting', function(e) {
+          $.ajax({
+            url: e.target.value,
+            success: function(data) {
+              $('#content').html(data)    
+            }
+           })
+        });
       })
     </script>
   </body>

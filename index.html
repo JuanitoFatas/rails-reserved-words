@@ -14,14 +14,15 @@
         <option value="builder.html">Builder</option>
       
     </select>
+    <div id='content'>
+    </div>
     <script>
       $(document).ready(function() {
         $('#search').select2().on('select2-selecting', function(e) {
-          console.log(e.target.value)
           $.ajax({
             url: e.target.value,
             success: function(data) {
-              console.log(data)
+              $('#content').html(data)    
             }
            })
         });
