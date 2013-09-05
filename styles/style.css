@@ -7,3 +7,18 @@ body {
   height: 2.5em;
   width: 75%;
 }
+
+#content {
+  margin-top: 10px;
+  background: #efefef;
+  padding: 10px;
+}
+
+#content h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.select2 {
+  width: 50%;
+}

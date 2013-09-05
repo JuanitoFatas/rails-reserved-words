@@ -9,20 +9,28 @@
   </head>
 
   <body>
+    <h1>Rails Reserved Words</h1>
+    <p>
+      If you want to look up if something is a reserved word in Rails, use this search box:
+    </p>
     <select class="select2" id='search'>
       
         <option value="builder.html">Builder</option>
       
     </select>
-    <div id='content'>
+    <div id='content' style='display:none'>
     </div>
+    <hr>
+    <p>
+      If the word you're after is not here, then please <a href='https://github.com/radar/rails-reserved-words'>fork this project on GitHub</a>, following the instructions in the README to add a new reserved word.
+    </p>
     <script>
       $(document).ready(function() {
         $('#search').select2().on('select2-selecting', function(e) {
           $.ajax({
             url: e.target.value,
             success: function(data) {
-              $('#content').html(data)    
+              $('#content').show().html(data)    
             }
            })
         });
